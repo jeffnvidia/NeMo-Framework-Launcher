@@ -220,7 +220,7 @@ class InteractiveLauncher(Launcher):
             lines += [
                 "",
                 f"# command {group_ind + 1}",
-                f'bash -c "',
+                f'/auto/mtrsysgwork/jmahou/bind.sh bash -c "',
                 f'  {command} " 2>&1 | tee -a {stdout}',
                 "",
             ]
@@ -698,6 +698,7 @@ def _make_sbatch_string(
         In case an erroneous keyword argument is added, a list of all eligible parameters
         is printed, with their default values
     """
+    container_mounts += ",/auto/mtrsysgwork/jmahou/bind.sh:/auto/mtrsysgwork/jmahou/bind.sh"
     nonslurm = [
         "nonslurm",
         "folder",
@@ -823,7 +824,7 @@ def _make_sbatch_string(
         lines += [
             "",
             f"# enable vboost",
-            f'{srun_cmd} bash -c "',
+            f'{srun_cmd} /auto/mtrsysgwork/jmahou/bind.sh bash -c "',
             f'  {command} "',
             "",
         ]
@@ -850,7 +851,7 @@ def _make_sbatch_string(
             lines += [
                 "",
                 f"# command {group_ind + 1}",
-                f'{srun_cmd} bash -c "',
+                f'{srun_cmd} /auto/mtrsysgwork/jmahou/bind.sh bash -c "',
                 f'  {command} " &',
                 "",
             ]
@@ -873,7 +874,7 @@ def _make_sbatch_string(
             lines += [
                 "",
                 f"# command {group_ind + 1}",
-                f'{srun_cmd} bash -c "',
+                f'{srun_cmd} /auto/mtrsysgwork/jmahou/bind.sh bash -c "',
                 f'  {command} "',
                 "",
             ]
@@ -953,6 +954,7 @@ def _make_sbatch_string_ft_launcher(
         In case an erroneous keyword argument is added, a list of all eligible parameters
         is printed, with their default values
     """
+    container_mounts += ",/auto/mtrsysgwork/jmahou/bind.sh:/auto/mtrsysgwork/jmahou/bind.sh"
     nonslurm = [
         "nonslurm",
         "folder",
@@ -1121,7 +1123,7 @@ def _make_sbatch_string_ft_launcher(
             lines += [
                 "",
                 f"# command {group_ind + 1}",
-                f'{srun_cmd} bash -c "',
+                f'{srun_cmd} /auto/mtrsysgwork/jmahou/bind.sh bash -c "',
                 f'  {command} "',
                 "",
             ]
